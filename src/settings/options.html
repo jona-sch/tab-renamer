@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Tab Renamer - Settings</title>
+    <link rel="stylesheet" href="options.css">
+    <link rel="icon" type="image/x-icon" href="../../icons/icon.svg">
+</head>
+<body>
+    <h1>Rename Rules</h1>
+    <form id="ruleForm">
+        <input type="text" id="target" placeholder="Target URL pattern" required>
+        <input type="text" id="filter" placeholder="Title regex (with groups)" required>
+        <input type="text" id="rename" placeholder="Rename pattern" required>
+        <button type="submit">Add Rule</button>
+    </form>
+
+    <ul id="ruleList"></ul>
+
+    <div id="importExport">
+        <button id="downloadRules">Download Rules</button>
+        <input type="file" id="uploadRules" accept="application/json" style="display:none;">
+        <button id="uploadButton">Upload Rules</button>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TabRe(gex)Namer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="popup-container">
+    <button id="openSettings">Open Settings</button>
+
+    <h3>Quick Add Rule</h3>
+    <form id="quickRuleForm">
+      <input type="text" id="target" placeholder="Target URL pattern" required>
+      <input type="text" id="filter" placeholder="Title regex (with groups)" required>
+      <input type="text" id="rename" placeholder="Rename pattern" required>
+      <button type="submit">Add Rule</button>
+    </form>
+
+    <p id="status"></p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
