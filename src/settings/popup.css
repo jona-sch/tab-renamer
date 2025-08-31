@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  padding: 10px;
+  width: 250px;
+}
+
+#popup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#status {
+  font-size: 12px;
+  margin-top: 5px;
+}

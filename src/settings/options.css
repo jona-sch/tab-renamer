@@ -1,0 +1,136 @@
+/* --- Global Styles --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Headings */
+h1, h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Form */
+form#ruleForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form#ruleForm input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1 1 150px;
+}
+
+form#ruleForm button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: background 0.2s;
+}
+
+form#ruleForm button:hover {
+  background-color: #2980b9;
+}
+
+/* Rules List */
+#ruleList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#ruleList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-family: monospace;
+}
+
+#ruleList li span {
+  flex: 1; /* makes the rule text take up remaining space */
+}
+
+/* Align buttons as a group */
+#ruleList li .actions {
+  display: flex;
+  gap: 6px;
+}
+
+#ruleList li button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#ruleList li button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  form#ruleForm {
+    flex-direction: column;
+  }
+  
+  form#ruleForm input, form#ruleForm button {
+    flex: 1 1 100%;
+  }
+}
+
+/* --- Import/Export Section --- */
+#importExport {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+#importExport button {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Download button (blue) */
+#downloadRules {
+  background-color: #27ae60;
+}
+#downloadRules:hover {
+  background-color: #1e8449;
+}
+
+/* Upload button (orange) */
+#uploadButton {
+  background-color: #e67e22;
+}
+#uploadButton:hover {
+  background-color: #ca6f1e;
+}
