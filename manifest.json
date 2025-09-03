@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "TabRe(gex)Namer",
-    "version": "0.1",
+    "version": "0.2",
   
     "description": "Enables tab renaming using regex.",
   
