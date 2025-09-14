@@ -29,7 +29,7 @@ function applyRules(rules, url, title) {
 
 (async function () {
   try {
-    const rules = await browser.runtime.sendMessage({ action: "getRules" });
+    const rules = await chrome.runtime.sendMessage({ action: "getRules" });
 
     if (!rules) return;
 

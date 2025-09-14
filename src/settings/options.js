@@ -22,7 +22,7 @@ function renderRules(rules) {
     toggle.className = rule.enabled ? "deactivate" : "activate";
     toggle.addEventListener("click", async () => {
       rules[index].enabled = !rules[index].enabled;
-      await browser.storage.local.set({ rules });
+      await chrome.storage.local.set({ rules });
       renderRules(rules); // re-render
     });
 
@@ -35,7 +35,7 @@ function renderRules(rules) {
       document.getElementById("filter").value = rule.filter;
       document.getElementById("rename").value = rule.rename;
       rules.splice(index, 1); // remove it so it can be resaved
-      browser.storage.local.set({ rules }).then(() => renderRules(rules));
+      chrome.storage.local.set({ rules }).then(() => renderRules(rules));
     });
 
     // Delete button
@@ -44,7 +44,7 @@ function renderRules(rules) {
     del.className = "delete";
     del.addEventListener("click", () => {
       rules.splice(index, 1);
-      browser.storage.local.set({ rules }).then(() => renderRules(rules));
+      chrome.storage.local.set({ rules }).then(() => renderRules(rules));
     });
 
     actions.appendChild(toggle);
@@ -58,7 +58,7 @@ function renderRules(rules) {
 }
   
 async function loadRules() {
-  const { rules = [] } = await browser.storage.local.get("rules");
+  const { rules = [] } = await chrome.storage.local.get("rules");
   renderRules(rules);
 }
   
@@ -82,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const { rules = [] } = await browser.storage.local.get("rules");
+    const { rules = [] } = await chrome.storage.local.get("rules");
     rules.push({ target, filter, rename, enabled });
-    await browser.storage.local.set({ rules });
+    await chrome.storage.local.set({ rules });
 
     form.reset();
     loadRules();
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Download rules ---
   document.getElementById("downloadRules").addEventListener("click", async () => {
-    const { rules = [] } = await browser.storage.local.get("rules");
+    const { rules = [] } = await chrome.storage.local.get("rules");
     const blob = new Blob([JSON.stringify(rules, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
 
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imported = JSON.parse(text);
       if (!Array.isArray(imported)) throw new Error("Invalid file format");
 
-      await browser.storage.local.set({ rules: imported });
+      await chrome.storage.local.set({ rules: imported });
       loadRules();
     } catch (err) {
       alert("Invalid rules file: " + err.message);

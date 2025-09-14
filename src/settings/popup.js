@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Open settings page
   openSettingsBtn.addEventListener("click", () => {
-    browser.runtime.openOptionsPage();
+    chrome.runtime.openOptionsPage();
   });
 
   // Handle quick rule submission
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const { rules = [] } = await browser.storage.local.get("rules");
+      const { rules = [] } = await chrome.storage.local.get("rules");
       const enabled = true;
       rules.push({ target, filter, rename, enabled });
-      await browser.storage.local.set({ rules });
+      await chrome.storage.local.set({ rules });
 
       status.textContent = "✅ Rule added!";
       status.style.color = "green";
